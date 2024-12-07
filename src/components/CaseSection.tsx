@@ -1,6 +1,7 @@
 "use client";
 
 import {motion} from "framer-motion";
+import {useEffect, useState} from "react";
 
 const cases = [
     {
@@ -24,46 +25,80 @@ const cases = [
 ];
 
 const CaseSection: React.FC = () => {
-    return (
-        <section data-aos="fade-up" className="py-16 ">
-            <div className="max-w-6xl mx-auto px-6 md:px-12 text-center">
-                {}
-                <motion.div
-                    initial={{opacity: 0, y: 20}}
-                    whileInView={{opacity: 1, y: 0}}
-                    viewport={{once: true}}
-                    transition={{duration: 0.8, ease: "easeOut"}}
-                >
-                    <h2 className="text-4xl font-bold text-gray-900 mb-6">
-                        Реальные кейсы, которые <span className="text-kobi">улучшают бизнес</span>
-                    </h2>
-                    <p className="text-gray-600 text-lg ">
-                        Эти кейсы доказывают, что интеграция 1С и Битрикс24 — это не просто синхронизация,
-                        а инструмент для роста бизнеса и повышения эффективности.
-                    </p>
-                </motion.div>
+    const [isDesktop, setIsDesktop] = useState(false);
 
-                {}
+    useEffect(() => {
+        // Определяем, десктопное ли устройство
+        const handleResize = () => setIsDesktop(window.innerWidth >= 768);
+        handleResize(); // Устанавливаем начальное значение
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    return (
+        <section data-aos="fade-up" className="py-16">
+            <div className="max-w-6xl mx-auto px-6 md:px-12 text-center">
+                {/* Заголовок */}
+                {isDesktop ? (
+                    <motion.div
+                        initial={{opacity: 0, y: 20}}
+                        whileInView={{opacity: 1, y: 0}}
+                        viewport={{once: true}}
+                        transition={{duration: 0.8, ease: "easeOut"}}
+                    >
+                        <h2 className="text-4xl font-bold text-gray-900 mb-6">
+                            Реальные кейсы, которые <span className="text-kobi">улучшают бизнес</span>
+                        </h2>
+                        <p className="text-gray-600 text-lg">
+                            Эти кейсы доказывают, что интеграция 1С и Битрикс24 — это не просто синхронизация,
+                            а инструмент для роста бизнеса и повышения эффективности.
+                        </p>
+                    </motion.div>
+                ) : (
+                    <div>
+                        <h2 className="text-4xl font-bold text-gray-900 mb-6">
+                            Реальные кейсы, которые <span className="text-kobi">улучшают бизнес</span>
+                        </h2>
+                        <p className="text-gray-600 text-lg">
+                            Эти кейсы доказывают, что интеграция 1С и Битрикс24 — это не просто синхронизация,
+                            а инструмент для роста бизнеса и повышения эффективности.
+                        </p>
+                    </div>
+                )}
+
+                {/* Кейсы */}
                 <div className="mt-12 space-y-8">
-                    {cases.map((caseItem, index) => (
-                        <motion.div
-                            key={index}
-                            className={`${caseItem.bg} rounded-2xl p-8 shadow-lg flex flex-col justify-between`}
-                            initial={{opacity: 0, x: -50}}
-                            whileInView={{opacity: 1, x: 0}}
-                            viewport={{once: true}}
-                            transition={{
-                                duration: 0.8,
-                                ease: "easeOut",
-                                delay: index * 0.2,
-                            }}
-                        >
-                            <h3 className="text-2xl font-semibold text-gray-800 mb-4">
-                                {caseItem.title}
-                            </h3>
-                            <p className="text-gray-700 text-lg">{caseItem.description}</p>
-                        </motion.div>
-                    ))}
+                    {cases.map((caseItem, index) =>
+                        isDesktop ? (
+                            <motion.div
+                                key={index}
+                                className={`${caseItem.bg} rounded-2xl p-8 shadow-lg flex flex-col justify-between`}
+                                initial={{opacity: 0, x: -50}}
+                                whileInView={{opacity: 1, x: 0}}
+                                viewport={{once: true}}
+                                transition={{
+                                    duration: 0.8,
+                                    ease: "easeOut",
+                                    delay: index * 0.2,
+                                }}
+                            >
+                                <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+                                    {caseItem.title}
+                                </h3>
+                                <p className="text-gray-700 text-lg">{caseItem.description}</p>
+                            </motion.div>
+                        ) : (
+                            <div
+                                key={index}
+                                className={`${caseItem.bg} rounded-2xl p-8 shadow-lg flex flex-col justify-between`}
+                            >
+                                <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+                                    {caseItem.title}
+                                </h3>
+                                <p className="text-gray-700 text-lg">{caseItem.description}</p>
+                            </div>
+                        )
+                    )}
                 </div>
             </div>
         </section>

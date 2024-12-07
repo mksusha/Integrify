@@ -2,6 +2,7 @@
 
 import {motion} from "framer-motion";
 import {Monitor, ShieldCheck, Star, Users} from "lucide-react";
+import {useEffect, useState} from "react";
 
 const reasons = [
     {
@@ -31,6 +32,12 @@ const reasons = [
 ];
 
 const ReasonsSectionContent: React.FC = () => {
+    const [isClient, setIsClient] = useState(false);
+
+    useEffect(() => {
+        setIsClient(true); // Устанавливаем флаг после монтирования клиента
+    }, []);
+
     return (
         <section data-aos="fade-up" className="py-16">
             <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
@@ -39,26 +46,41 @@ const ReasonsSectionContent: React.FC = () => {
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     {reasons.map((reason, index) => (
-                        <motion.div
-                            key={index}
-                            className="reason-card flex flex-col items-center justify-center p-6 rounded-xl border border-gray-200 shadow-sm"
-                            initial={{opacity: 0, scale: 0.8, rotate: -5}}
-                            whileInView={{opacity: 1, scale: 1, rotate: 0}}
-                            viewport={{once: true, amount: 0.5}}
-                            transition={{
-                                duration: 0.6,
-                                ease: "easeOut",
-                                delay: index * 0.15,
-                            }}
-                        >
-                            <div className="mb-4">{reason.icon}</div>
-                            <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                                {reason.title}
-                            </h3>
-                            <p className="text-gray-700 text-center text-sm">
-                                {reason.description}
-                            </p>
-                        </motion.div>
+                        isClient ? (
+                            <motion.div
+                                key={index}
+                                className="reason-card flex flex-col items-center justify-center p-6 rounded-xl border border-gray-200 shadow-sm"
+                                initial={{opacity: 0, scale: 0.8, rotate: -5}}
+                                whileInView={{opacity: 1, scale: 1, rotate: 0}}
+                                viewport={{once: true, amount: 0.5}}
+                                transition={{
+                                    duration: 0.6,
+                                    ease: "easeOut",
+                                    delay: index * 0.15,
+                                }}
+                            >
+                                <div className="mb-4">{reason.icon}</div>
+                                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                                    {reason.title}
+                                </h3>
+                                <p className="text-gray-700 text-center text-sm">
+                                    {reason.description}
+                                </p>
+                            </motion.div>
+                        ) : (
+                            <div
+                                key={index}
+                                className="reason-card flex flex-col items-center justify-center p-6 rounded-xl border border-gray-200 shadow-sm"
+                            >
+                                <div className="mb-4">{reason.icon}</div>
+                                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                                    {reason.title}
+                                </h3>
+                                <p className="text-gray-700 text-center text-sm">
+                                    {reason.description}
+                                </p>
+                            </div>
+                        )
                     ))}
                 </div>
             </div>

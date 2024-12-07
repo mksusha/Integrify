@@ -29,17 +29,17 @@ const slides = [
             {
                 title: "Синхронизация продаж",
                 description: "Автоматизируем учет продаж и исключаем ручной ввод данных.",
-                icon: <ShoppingCart className="w-12 h-12 text-anakiwa"/>,
+                icon: <ShoppingCart className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-anakiwa"/>,
             },
             {
                 title: "Учет остатков",
                 description: "Синхронизируем данные о товарах для актуального учета.",
-                icon: <Layers className="w-12 h-12 text-anakiwa"/>,
+                icon: <Layers className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-anakiwa"/>,
             },
             {
                 title: "Автоматизация",
                 description: "Снижаем вероятность ошибок с помощью автоматических процессов.",
-                icon: <Zap className="w-12 h-12 text-anakiwa"/>,
+                icon: <Zap className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-anakiwa"/>,
             },
         ],
     },
@@ -56,17 +56,17 @@ const slides = [
             {
                 title: "Управление заказами",
                 description: "Упрощаем обработку клиентских заказов.",
-                icon: <Package className="w-12 h-12 text-yellow-sea"/>,
+                icon: <Package className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-yellow-sea"/>,
             },
             {
                 title: "Сегментация клиентов",
                 description: "Помогаем лучше понять клиентов через аналитику.",
-                icon: <Users className="w-12 h-12 text-yellow-sea"/>,
+                icon: <Users className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-yellow-sea"/>,
             },
             {
                 title: "CRM аналитика",
                 description: "Собираем и анализируем данные о продажах.",
-                icon: <BarChart2 className="w-12 h-12 text-yellow-sea"/>,
+                icon: <BarChart2 className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-yellow-sea"/>,
             },
         ],
     },
@@ -83,17 +83,17 @@ const slides = [
             {
                 title: "Учет финансов",
                 description: "Автоматизируем учет доходов и расходов компании.",
-                icon: <Server className="w-12 h-12 text-kobi"/>,
+                icon: <Server className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-kobi"/>,
             },
             {
                 title: "Планирование задач",
                 description: "Оптимизируем управление проектами и задачами.",
-                icon: <Zap className="w-12 h-12 text-kobi"/>,
+                icon: <Zap className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-kobi"/>,
             },
             {
                 title: "Контроль процессов",
                 description: "Обеспечиваем прозрачность и контроль на всех этапах.",
-                icon: <BarChart2 className="w-12 h-12 text-kobi"/>,
+                icon: <BarChart2 className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-kobi"/>,
             },
         ],
     },
@@ -110,17 +110,17 @@ const slides = [
             {
                 title: "Глобальная интеграция",
                 description: "Связываем все процессы в единую систему.",
-                icon: <Globe className="w-12 h-12 text-blue-500"/>,
+                icon: <Globe className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-blue-500"/>,
             },
             {
                 title: "Упрощение логистики",
                 description: "Оптимизируем складской учет и логистику.",
-                icon: <Package className="w-12 h-12 text-blue-500"/>,
+                icon: <Package className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-blue-500"/>,
             },
             {
                 title: "Эффективность бизнеса",
                 description: "Повышаем продуктивность всех бизнес-процессов.",
-                icon: <BarChart2 className="w-12 h-12 text-blue-500"/>,
+                icon: <BarChart2 className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-blue-500"/>,
             },
         ],
     },
@@ -155,7 +155,7 @@ const FullscreenIntegrationCarousel: React.FC = () => {
                 {slides.map((slide, index) => (
                     <SwiperSlide key={index}>
                         <div
-                            className={`relative flex flex-col items-center justify-center text-white shadow-lg ${slide.bgColor} p-10 md:p-50`}
+                            className={`relative flex flex-col items-center justify-center text-white shadow-lg ${slide.bgColor} p-5 md:p-12`}
                             style={{
                                 borderRadius: "30px",
                             }}
@@ -169,7 +169,7 @@ const FullscreenIntegrationCarousel: React.FC = () => {
                             </h4>
 
                             {}
-                            <p className="text-xs sm:text-sm md:text-lg text-center mb-8 sm:mb-12 w-11/12 sm:w-4/5">
+                            <p className="text-xs sm:text-sm  md:text-lg text-center mb-4 sm:mb-14 w-11/12 sm:w-4/5">
                                 {slide.description}
                             </p>
 
