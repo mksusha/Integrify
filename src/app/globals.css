@@ -82,7 +82,7 @@ body {
 .consultation-section {
     text-align: center;
     padding: 6rem 1rem;
-    background-image: url("/public/cloud.svg");
+    /*background-image: url("/public/cloud.svg");*/
     background-repeat: no-repeat;
     background-size: cover;
 }
