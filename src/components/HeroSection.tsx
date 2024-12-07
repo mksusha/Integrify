@@ -60,7 +60,7 @@ const HeroSection: React.FC = () => {
                             <Database className="w-8 h-8 mr-3" />
                             <h3 className="text-lg font-bold">Единая система данных</h3>
                         </div>
-                        <p className="text-sm">
+                        <p className="text-lg">
                             Обеспечиваем обмен данными между 1С, Битрикс24 и сайтом на любой платформе
                             (WordPress, 1С-Битрикс, ModX и др.). Ускоряем процессы и устраняем дублирование данных.
                         </p>
@@ -76,10 +76,10 @@ const HeroSection: React.FC = () => {
                         }}
                     >
                         <div className="flex items-center mb-4">
-                            <Layers className="w-8 h-8 mr-3" />
+                            <Layers className="w-8 h-8 mr-3"/>
                             <h3 className="text-lg font-bold">Интеграция для точных задач</h3>
                         </div>
-                        <p className="text-sm">
+                        <p className="text-lg">
                             Настраиваем двойную интеграцию: CMS + 1С, CMS + Битрикс24 или Битрикс24 + 1С.
                             Оптимизируем процессы для каждой задачи, учитывая специфику вашего бизнеса.
                         </p>
@@ -96,10 +96,10 @@ const HeroSection: React.FC = () => {
                         }}
                     >
                         <div className="flex items-center mb-4">
-                            <WandSparkles className="w-8 h-8 mr-3" />
+                            <WandSparkles className="w-8 h-8 mr-3"/>
                             <h3 className="text-lg font-bold">Сложные задачи? Мы справимся!</h3>
                         </div>
-                        <p className="text-sm">
+                        <p className="text-lg">
                             Выполняем сложные интеграции: кастомные алгоритмы, уникальная синхронизация, поддержка
                             сервисов. Разрабатываем решения под уникальные запросы.
                         </p>

@@ -2,6 +2,8 @@
 
 import {motion} from "framer-motion";
 import {useEffect, useState} from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const cases = [
     {
@@ -35,8 +37,15 @@ const CaseSection: React.FC = () => {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
+    useEffect(() => {
+        AOS.init({
+            duration: 800,
+            easing: "ease-out",
+        });
+    }, []);
+
     return (
-        <section data-aos="fade-up" className="py-16">
+        <section className="py-16">
             <div className="max-w-6xl mx-auto px-6 md:px-12 text-center">
                 {/* Заголовок */}
                 {isDesktop ? (
@@ -91,6 +100,8 @@ const CaseSection: React.FC = () => {
                             <div
                                 key={index}
                                 className={`${caseItem.bg} rounded-2xl p-8 shadow-lg flex flex-col justify-between`}
+                                data-aos="fade-left"
+                                data-aos-delay={`${index * 200}`}
                             >
                                 <h3 className="text-2xl font-semibold text-gray-800 mb-4">
                                     {caseItem.title}

@@ -77,7 +77,7 @@ const ReasonsSectionContent: React.FC = () => {
                                 <h3 className="text-lg font-semibold text-gray-900 mb-2">
                                     {reason.title}
                                 </h3>
-                                <p className="text-gray-700 text-center text-sm">
+                                <p className="text-gray-700 text-center text-lg">
                                     {reason.description}
                                 </p>
                             </motion.div>
@@ -92,7 +92,7 @@ const ReasonsSectionContent: React.FC = () => {
                                 <h3 className="text-lg font-semibold text-gray-900 mb-2">
                                     {reason.title}
                                 </h3>
-                                <p className="text-gray-700 text-center text-sm">
+                                <p className="text-gray-700 text-center text-lg">
                                     {reason.description}
                                 </p>
                             </div>

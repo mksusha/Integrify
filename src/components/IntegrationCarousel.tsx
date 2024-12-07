@@ -161,15 +161,15 @@ const FullscreenIntegrationCarousel: React.FC = () => {
                             }}
                         >
                             {}
-                            <h3 className="text-lg sm:text-2xl md:text-5xl font-bold mb-4 text-center">
+                            <h3 className="text-xl sm:text-2xl md:text-5xl font-bold mb-4 text-center">
                                 {slide.title1}
                             </h3>
-                            <h4 className="text-sm sm:text-lg md:text-4xl font-semibold text-center opacity-70 mb-4">
+                            <h4 className="text-lg sm:text-xl md:text-4xl font-semibold text-center opacity-70 mb-4">
                                 {slide.title2}
                             </h4>
 
                             {}
-                            <p className="text-xs sm:text-sm  md:text-lg text-center mb-4 sm:mb-14 w-11/12 sm:w-4/5">
+                            <p className="text-sm sm:text-lg  md:text-lg text-center mb-4 sm:mb-14 w-11/12 sm:w-4/5">
                                 {slide.description}
                             </p>
 
