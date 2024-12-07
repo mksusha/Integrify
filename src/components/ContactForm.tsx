@@ -21,7 +21,7 @@ const ContactForm: React.FC = () => {
     };
 
     return (
-        <section className="py-20 relative">
+        <section data-aos="fade-up" className="py-20 relative">
             {}
             <motion.div
                 className="absolute -top-16 left-1/4 w-48 h-48 bg-blue-400 rounded-full opacity-20"

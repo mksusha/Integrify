@@ -3,6 +3,8 @@
 import {motion} from "framer-motion";
 import {Monitor, ShieldCheck, Star, Users} from "lucide-react";
 import {useEffect, useState} from "react";
+import "aos/dist/aos.css";
+import AOS from "aos";
 
 const reasons = [
     {
@@ -32,21 +34,33 @@ const reasons = [
 ];
 
 const ReasonsSectionContent: React.FC = () => {
-    const [isClient, setIsClient] = useState(false);
+    const [isDesktop, setIsDesktop] = useState(false);
 
     useEffect(() => {
-        setIsClient(true); // Устанавливаем флаг после монтирования клиента
+        const handleResize = () => {
+            setIsDesktop(window.innerWidth >= 768);
+        };
+        handleResize(); // Проверка при монтировании
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    useEffect(() => {
+        AOS.init({
+            duration: 800,
+            easing: "ease-out",
+        });
     }, []);
 
     return (
         <section data-aos="fade-up" className="py-16">
             <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
-                <h2 className="text-3xl md:text-5xl font-bold mb-8">
+                <h2 className="text-3xl md:text-5xl font-bold mb-16">
                     Почему <span className="text-yellow-sea">выбирают нас?</span>
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {reasons.map((reason, index) => (
-                        isClient ? (
+                    {reasons.map((reason, index) =>
+                        isDesktop ? (
                             <motion.div
                                 key={index}
                                 className="reason-card flex flex-col items-center justify-center p-6 rounded-xl border border-gray-200 shadow-sm"
@@ -71,6 +85,8 @@ const ReasonsSectionContent: React.FC = () => {
                             <div
                                 key={index}
                                 className="reason-card flex flex-col items-center justify-center p-6 rounded-xl border border-gray-200 shadow-sm"
+                                data-aos="fade-left"
+                                data-aos-delay={`${index * 150}`}
                             >
                                 <div className="mb-4">{reason.icon}</div>
                                 <h3 className="text-lg font-semibold text-gray-900 mb-2">
@@ -81,7 +97,7 @@ const ReasonsSectionContent: React.FC = () => {
                                 </p>
                             </div>
                         )
-                    ))}
+                    )}
                 </div>
             </div>
         </section>
