@@ -3,19 +3,163 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --color-anakiwa: #92c9ff;
+    --color-athens-gray: #ece6ff;
+    --color-black: #000;
+    --color-cod-gray: #131313;
+    --color-cod-gray-26: rgba(19, 19, 19, 0.26);
+    --color-dodger-blue: #52a8ff;
+    --color-downy: #B5C2EA;
+    --color-dune-dark: #372f2c;
+    --color-dusty-gray: #9b9a9a;
+    --color-gallery: #eee;
+    --color-gray-primary: #52a8ff;
+    --color-kobi: #CF9AB7;
+    --color-malibu: #4ca3f8;
+    --color-masala: #4e4744;
+    --color-medium-red-violet: #af388a;
+    --color-mercury-44: rgba(231, 231, 231, 0.44);
+    --color-shamrock: #3cd3ad;
+    --color-silver-chalice: #acacac;
+    --color-skeptic: #bbe1d6;
+    --color-thunder: #231f20;
+    --color-white: #fff;
+    --color-white-20: rgba(255, 255, 255, 0.2);
+    --color-white-70: rgba(255, 255, 255, 0.7);
+    --color-yellow-sea: #FFD04D;
+    --color-orange-primary: #ffac00;
+    --color-rose: #efacd1;
+    --color-grey-light: #848484;
+    --color-azure-light: #67b4ff;
+    --color-cyan-light: #66d3c8;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@keyframes swing {
+    0%, 100% {
+        transform: rotate(-3deg);
+    }
+    50% {
+        transform: rotate(3deg);
+    }
+}
+
+.swing-animation {
+    animation: swing 3s ease-in-out infinite;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Nunito', sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.mini-card-anakiwa .bg-white {
+    background-color: #80a9f5;
+}
+
+.mini-card-yellow-sea .bg-white {
+    background-color: #d7b861;
+}
+
+.mini-card-kobi .bg-white {
+    background-color: #e8c9ee;
+}
+
+.mini-card-blue-500 .bg-white {
+    background-color: #86a4ea;
+}
+
+.consultation-section {
+    text-align: center;
+    padding: 6rem 1rem;
+    background-image: url("/public/cloud.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.consultation-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 5rem;
+}
+
+.consultation-title span {
+    color: #6b46c1;
+}
+
+.consultation-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.consultation-card {
+    position: relative;
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.consultation-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.consultation-card svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.consultation-text {
+    position: relative;
+    z-index: 1;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    max-width: 90%;
+    margin: 0 auto;
+    font-weight: 500;
+}
+
+.card-text-blue {
+    color: #2b6cb0;
+}
+
+.card-text-pink {
+    color: #d53f8c;
+}
+
+.card-text-purple {
+    color: #322659;
+}
+
+.card-text-blue-light {
+    color: #3182ce;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
