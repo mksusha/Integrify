@@ -74,3 +74,6 @@ body {
 .mini-card-blue-500 .bg-white {
     background-color: #86a4ea;
 }
+.reason-card {
+    will-change: transform, opacity;
+}
