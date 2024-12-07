@@ -9,6 +9,7 @@ export default {
   theme: {
     extend: {
       colors: {
+
         background: "var(--background)",
         foreground: "var(--foreground)",
         anakiwa: "var(--color-anakiwa)",
@@ -43,6 +44,11 @@ export default {
       fontFamily: {
         nunito: ['Nunito', 'sans-serif'],
       },
+      safelist: [
+        {
+          pattern: /text-\[.*\]/,
+        },
+      ],
     },
   },
   plugins: [],
